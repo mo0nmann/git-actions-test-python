@@ -62,9 +62,10 @@ runs:
         python-version: ${{ inputs.python_version }}
         cache: pip
 
-    - name: Install dependencies from requirements.txt as well as pytest
+    - name: Install dependencies from requirements.txt as well as pytest and pytest-cov
       run: |
         grep -q 'pytest' requirements.txt || echo 'pytest' >> requirements.txt
+        grep -q 'pytest-cov' requirements.txt || echo 'pytest-cov' >> requirements.txt
         pip install -r requirements.txt
       shell: bash
 
