@@ -77,9 +77,9 @@ runs:
 
     - name: Parse PyTest coverage fail percent option
       shell: bash
-      if: ${{ inputs.pytest_coverage_fail_percent }} != 0
+      if: ${{ inputs.pytest_coverage_threshold_percent }} != 0
       run: |
-        echo "pytest_fail_percent_options=$(echo '--cov-fail-under=${{ inputs.pytest_coverage_fail_percent }}')" >> $GITHUB_ENV
+        echo "pytest_fail_percent_options=$(echo '--cov-fail-under=${{ inputs.pytest_coverage_threshold_percent }}')" >> $GITHUB_ENV
 
     - name: Test with PyTest
       shell: bash
