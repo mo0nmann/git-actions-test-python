@@ -64,9 +64,9 @@ runs:
 
     - name: Install dependencies from requirements.txt as well as pytest and pytest-cov
       run: |
-        grep -q 'pytest' requirements.txt || echo 'pytest' >> requirements.txt
-        grep -q 'pytest-cov' requirements.txt || echo 'pytest-cov' >> requirements.txt
         pip install -r requirements.txt
+        grep -q 'pytest' requirements.txt || pip install pytest
+        grep -q 'pytest-cov' requirements.txt || pip install pytest-cov
       shell: bash
 
     - name: Parse PyTest coverage xml file name option
